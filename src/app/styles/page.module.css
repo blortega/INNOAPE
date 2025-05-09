@@ -39,14 +39,34 @@
   box-sizing: border-box;
 }
 
-/* Header Styles */
+/* Updated Header Styles to ensure stickiness */
 .header {
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  position: fixed; /* Changed from sticky to fixed */
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 100;
   padding: 16px 0;
+  transition: transform 0.3s ease;
+}
+
+.body {
+  padding-top: 76px;
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+/* Keep dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-color: #1a1a1a;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .logoContainer {

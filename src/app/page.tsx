@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { assets } from "@/components/assets";
 import styles from "@/styles/page.module.css";
+import { BsCheckCircleFill, BsTelephoneFill } from "react-icons/bs";
+import { HiOutlineDocumentArrowUp } from "react-icons/hi2";
+import { MdBarChart, MdEmail } from "react-icons/md";
+import { RiShieldCheckFill } from "react-icons/ri";
 
 export default function Home() {
   return (
@@ -68,12 +72,7 @@ export default function Home() {
             <div className={styles.featureGrid}>
               <div className={styles.featureCard}>
                 <div className={styles.featureIcon}>
-                  <Image
-                    src={assets.schedulesvg}
-                    alt="PDF icon"
-                    width={48}
-                    height={48}
-                  />
+                  <HiOutlineDocumentArrowUp size={48} color="#4CAF50" />
                 </div>
                 <h3>Easy PDF Uploads</h3>
                 <p>
@@ -83,12 +82,7 @@ export default function Home() {
               </div>
               <div className={styles.featureCard}>
                 <div className={styles.featureIcon}>
-                  <Image
-                    src={assets.timesvg}
-                    alt="Graph icon"
-                    width={48}
-                    height={48}
-                  />
+                  <MdBarChart size={48} color="#2196F3" />
                 </div>
                 <h3>Interactive Visualizations</h3>
                 <p>
@@ -99,12 +93,7 @@ export default function Home() {
               </div>
               <div className={styles.featureCard}>
                 <div className={styles.featureIcon}>
-                  <Image
-                    src={assets.caresvg}
-                    alt="Shield icon"
-                    width={48}
-                    height={48}
-                  />
+                  <RiShieldCheckFill size={48} color="#9C27B0" />
                 </div>
                 <h3>Secure Storage</h3>
                 <p>
@@ -287,30 +276,15 @@ export default function Home() {
             </div>
             <div className={styles.ctaFeatures}>
               <div className={styles.ctaFeature}>
-                <Image
-                  src="/check-icon.svg"
-                  alt="Check icon"
-                  width={18}
-                  height={18}
-                />
+                <BsCheckCircleFill color="#4CAF50" size={18} />
                 <span>Free basic account available</span>
               </div>
               <div className={styles.ctaFeature}>
-                <Image
-                  src="/check-icon.svg"
-                  alt="Check icon"
-                  width={18}
-                  height={18}
-                />
+                <BsCheckCircleFill color="#4CAF50" size={18} />
                 <span>Cancel anytime</span>
               </div>
               <div className={styles.ctaFeature}>
-                <Image
-                  src="/check-icon.svg"
-                  alt="Check icon"
-                  width={18}
-                  height={18}
-                />
+                <BsCheckCircleFill color="#4CAF50" size={18} />
                 <span>HIPAA compliant</span>
               </div>
             </div>
@@ -366,15 +340,11 @@ export default function Home() {
               <h4>Contact</h4>
               <ul>
                 <li className={styles.contactItem}>
-                  <Image
-                    src="/phone-icon.svg"
-                    alt="Phone icon"
-                    width={16}
-                    height={16}
-                  />
+                  <BsTelephoneFill size={16} color="currentColor" />
                   <span>1-800-HEALTH-CHECK</span>
                 </li>
-                <li>
+                <li className={styles.contactItem}>
+                  <MdEmail size={16} color="currentColor" />
                   <a href="mailto:support@healthcheck.com">
                     support@healthcheck.com
                   </a>

@@ -174,9 +174,9 @@ export default function Home() {
                   </div>
                 </div>
                 <blockquote>
-                  "Being able to see my cholesterol levels trending down over
-                  the past 3 years has been incredibly motivating. The visual
-                  progress keeps me committed to my health goals."
+                  &ldquo;Being able to see my cholesterol levels trending down
+                  over the past 3 years has been incredibly motivating. The
+                  visual progress keeps me committed to my health goals.&rdquo;
                 </blockquote>
               </div>
               <div className={styles.testimonialCard}>
@@ -195,9 +195,9 @@ export default function Home() {
                   </div>
                 </div>
                 <blockquote>
-                  "As someone with a family history of diabetes, tracking my
-                  glucose levels over time has been invaluable. The bar graphs
-                  make it easy to discuss trends with my doctor."
+                  &ldquo;As someone with a family history of diabetes, tracking
+                  my glucose levels over time has been invaluable. The bar
+                  graphs make it easy to discuss trends with my doctor.&rdquo;
                 </blockquote>
               </div>
               <div className={styles.testimonialCard}>
@@ -216,9 +216,9 @@ export default function Home() {
                   </div>
                 </div>
                 <blockquote>
-                  "I love having all my health records in one place. Uploading
-                  the PDFs was simple, and now I can actually see how my
-                  lifestyle changes have impacted my blood pressure."
+                  &ldquo;I love having all my health records in one place.
+                  Uploading the PDFs was simple, and now I can actually see how
+                  my lifestyle changes have impacted my blood pressure.&rdquo;
                 </blockquote>
               </div>
             </div>
@@ -253,8 +253,8 @@ export default function Home() {
                 </h3>
                 <p>
                   Currently, our system is optimized for annual physical exam
-                  reports, but we're working to expand compatibility with other
-                  medical document types.
+                  reports, but we&apos;re working to expand compatibility with
+                  other medical document types.
                 </p>
               </div>
               <div className={styles.faqCard}>

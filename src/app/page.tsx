@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link"; // Import Link component for navigation
 import { assets } from "@/components/assets";
 import styles from "@/styles/page.module.css";
 
@@ -40,6 +41,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Add Login Button */}
+        <div className={styles.buttonContainer}>
+          <Link href="/register">
+            <button className={styles.navigateButton}>Go to Register</button>
+          </Link>
         </div>
       </div>
     </div>

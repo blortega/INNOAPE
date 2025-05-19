@@ -92,16 +92,17 @@
   color: #464646;
 }
 
+.innodataIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 .innodataIconWrapper {
   display: flex;
   align-items: center;
   margin-left: 2px;
-  margin-bottom: -2px;
-}
-
-.innodataIcon {
-  width: auto;
-  height: auto;
+  margin-bottom: -1px;
 }
 
 @keyframes fadeIn {

@@ -15,6 +15,7 @@ import {
   serverTimestamp,
   doc,
   setDoc,
+  getDoc,
 } from "firebase/firestore";
 import { assets } from "@/components/assets";
 import styles from "@/styles/register.module.css";
@@ -41,7 +42,6 @@ export default function RegisterPage() {
   ) => {
     const { name, value, type } = e.target;
 
-    // Convert name fields and employeeid to uppercase
     if (
       name === "firstname" ||
       name === "middlename" ||
@@ -71,7 +71,6 @@ export default function RegisterPage() {
     }
 
     try {
-      // Make sure required fields are present
       if (
         !formData.firstname ||
         !formData.lastname ||
@@ -83,10 +82,15 @@ export default function RegisterPage() {
         return;
       }
 
-      // Initialize Firebase Auth
-      const auth = getAuth();
+      const employeeDocRef = doc(db, "users", formData.employeeid);
+      const employeeDocSnap = await getDoc(employeeDocRef);
 
-      // Create user with email and password
+      if (employeeDocSnap.exists()) {
+        alert("Registration failed: Employee ID already exists");
+        return;
+      }
+
+      const auth = getAuth();
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         formData.email,
@@ -103,15 +107,18 @@ export default function RegisterPage() {
       // Prepare user data for Firestore (exclude password and confirmPassword)
       const { password, confirmPassword, ...userData } = formData;
 
-      // Store additional user data in Firestore
-      await setDoc(doc(db, "users", user.uid), {
+      // Store additional user data in Firestore using employeeid as document ID
+      await setDoc(doc(db, "users", formData.employeeid), {
         ...userData,
-        uid: user.uid,
+        uid: user.uid, // Still store Firebase Auth UID for reference
         createdAt: serverTimestamp(),
         active: true,
       });
 
-      console.log("User created successfully with ID: ", user.uid);
+      console.log(
+        "User created successfully with employee ID: ",
+        formData.employeeid
+      );
       alert("Employee registered successfully!");
 
       // Clear form data after successful submission
@@ -131,7 +138,7 @@ export default function RegisterPage() {
       setFormStep(1);
 
       // Redirect to login page
-      // window.location.href = "/login";
+      window.location.href = "/login";
     } catch (error) {
       console.error("Error registering user: ", error);
 
@@ -154,19 +161,15 @@ export default function RegisterPage() {
 
   const nextStep = () => {
     if (formStep === 1) {
-      // Validate first step
       if (!formData.firstname || !formData.lastname || !formData.email) {
         alert("Please fill all required fields");
         return;
       }
-
-      // Simple email validation
       if (!/\S+@\S+\.\S+/.test(formData.email)) {
         alert("Please enter a valid email address");
         return;
       }
     } else if (formStep === 2) {
-      // Validate second step
       if (!formData.employeeid || !formData.gender || !formData.birthdate) {
         alert("Please fill all required fields");
         return;

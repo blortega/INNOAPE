@@ -122,7 +122,7 @@ export default function LoginPage() {
           </form>
 
           <div className={styles.registerPrompt}>
-            <p>Don't have an account?</p>
+            <p>Don&apos;t have an account?</p>
             <Link href="/register" className={styles.registerLink}>
               Register here
             </Link>

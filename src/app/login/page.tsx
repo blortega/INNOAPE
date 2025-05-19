@@ -45,7 +45,7 @@ export default function LoginPage() {
       <div className={styles.loginContainer}>
         <div className={styles.logoSection}>
           <Image
-            src={assets.innoAPEbg}
+            src={assets.innoAPE}
             alt="Company Logo"
             width={100}
             height={100}

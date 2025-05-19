@@ -8,6 +8,7 @@ import timesvg from "@/assets/svg/clock-check-svgrepo-com.svg";
 import caresvg from "@/assets/svg/medical-pack-svgrepo-com.svg";
 import checkcirclesvg from "@/assets/svg/check-circle-svg.svg";
 import checksvg from "@/assets/svg/check-svgrepo-com.svg";
+import employeeSVG from "@/assets/svg/employeeSVG-cropped.svg";
 import { TbBackground } from "react-icons/tb";
 
 export const assets = {
@@ -21,4 +22,5 @@ export const assets = {
   caresvg,
   checkcirclesvg,
   checksvg,
+  employeeSVG,
 };

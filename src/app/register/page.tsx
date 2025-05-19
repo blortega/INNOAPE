@@ -98,11 +98,7 @@ export default function RegisterPage() {
       });
 
       // Prepare user data for Firestore (exclude password and confirmPassword)
-      const {
-        password: _password,
-        confirmPassword: _confirmPassword,
-        ...userData
-      } = formData;
+      const { password, confirmPassword, ...userData } = formData;
 
       // Store additional user data in Firestore using employeeid as document ID
       await setDoc(doc(db, "users", formData.employeeid), {

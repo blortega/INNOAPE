@@ -97,8 +97,16 @@ export default function RegisterPage() {
         displayName: `${formData.firstname} ${formData.lastname}`,
       });
 
-      // Prepare user data for Firestore (exclude password and confirmPassword)
-      const { password, confirmPassword, ...userData } = formData;
+      // Create a new object without password fields for Firestore
+      const userData = {
+        firstname: formData.firstname,
+        middlename: formData.middlename,
+        lastname: formData.lastname,
+        employeeid: formData.employeeid,
+        gender: formData.gender,
+        birthdate: formData.birthdate,
+        email: formData.email,
+      };
 
       // Store additional user data in Firestore using employeeid as document ID
       await setDoc(doc(db, "users", formData.employeeid), {

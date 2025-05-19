@@ -9,14 +9,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-  doc,
-  setDoc,
-  getDoc,
-} from "firebase/firestore";
+import { serverTimestamp, doc, setDoc, getDoc } from "firebase/firestore";
 import { assets } from "@/components/assets";
 import styles from "@/styles/register.module.css";
 
@@ -40,7 +33,7 @@ export default function RegisterPage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
 
     if (
       name === "firstname" ||
@@ -105,7 +98,11 @@ export default function RegisterPage() {
       });
 
       // Prepare user data for Firestore (exclude password and confirmPassword)
-      const { password, confirmPassword, ...userData } = formData;
+      const {
+        password: _password,
+        confirmPassword: _confirmPassword,
+        ...userData
+      } = formData;
 
       // Store additional user data in Firestore using employeeid as document ID
       await setDoc(doc(db, "users", formData.employeeid), {
